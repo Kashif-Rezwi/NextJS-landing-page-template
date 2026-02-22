@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 
 import { cn } from "@/lib/utils";
+import { LanguageProvider } from './i18n/provider';
+import { LanguageSwitcher } from './i18n/switcher';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,7 +24,10 @@ export default function RootLayout({
           GeistSans.className,
         )}
       >
+        <LanguageProvider defaultLocale="en" availableLocales={['en', 'fr', 'ar', 'ja']}>
         {children}
+        <LanguageSwitcher />
+      </LanguageProvider>
       </body>
     </html>
   );
