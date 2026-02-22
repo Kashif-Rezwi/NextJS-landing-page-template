@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 
 import { cn } from "@/lib/utils";
+import { LingoProvider } from '@lingo.dev/react/client';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({
           GeistSans.className,
         )}
       >
-        {children}
+        <LingoProvider locales={['fr', 'ar', 'ja']}>{children}</LingoProvider>
       </body>
     </html>
   );
